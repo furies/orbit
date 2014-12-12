@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="furies\orbitBundle\Entity\PrepaidTariff" table="prepaid_tariff">
+    <id name="idprepaidTariff" type="integer" column="idprepaid_tariff">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="prepaidTariffName" type="string" column="prepaid_tariff_name" length="45" nullable="false"/>
+    <field name="prepaidTariffValiditydays" type="integer" column="prepaid_tariff_validitydays" nullable="false"/>
+    <field name="prepaidTariffUsagelimit" type="float" column="prepaid_tariff_usagelimit" precision="10" scale="0" nullable="false"/>
+    <field name="prepaidTariffDownloadspeed" type="float" column="prepaid_tariff_downloadspeed" precision="10" scale="0" nullable="false"/>
+    <field name="prepaidTariffCapdownloadspeed" type="float" column="prepaid_tariff_capdownloadspeed" precision="10" scale="0" nullable="false"/>
+    <field name="prepaidTariffUploadspeed" type="float" column="prepaid_tariff_uploadspeed" precision="10" scale="0" nullable="false"/>
+    <field name="prepaidTariffCapuploadspeed" type="float" column="prepaid_tariff_capuploadspeed" precision="10" scale="0" nullable="false"/>
+    <field name="prepaidTariffActive" type="boolean" column="prepaid_tariff_active" nullable="false"/>
+    <field name="prepaidTariffBillafterlimit" type="boolean" column="prepaid_tariff_billafterlimit" nullable="false"/>
+    <field name="prepaidTariffAmountpermb" type="float" column="prepaid_tariff_amountpermb" precision="10" scale="0" nullable="true"/>
+    <field name="prepaidTariffAmount" type="float" column="prepaid_tariff_amount" precision="10" scale="0" nullable="true"/>
+    <field name="companyid" type="integer" column="companyid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

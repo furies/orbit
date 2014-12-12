@@ -1,0 +1,17 @@
+furiesorbit_homepage:
+    path:     /orbit
+    defaults: { _controller: furiesorbitBundle:Default:index }
+
+
+
+_orbit_secured:
+    resource: "@furiesorbitBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_orbit_customer:
+    resource: "@furiesorbitBundle/Controller/customerController.php"
+    type:     annotation
+
+_orbit:
+    path:     /orbit
+    defaults: { _controller: furiesorbitBundle:Default:index }

@@ -1,0 +1,25 @@
+furies\orbitBundle\Entity\users:
+    type: entity
+    table: null
+    repositoryClass: furies\orbitBundle\Entity\usersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        username:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        email:
+            type: text
+        isactive:
+            type: boolean
+        "\e":
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,60 @@
+<?php
+
+namespace furies\orbitBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Users
+ *
+ * @ORM\Table(name="users")
+ * @ORM\Entity
+ */
+class Users
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user", type="string", length=255, nullable=false)
+     */
+    private $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="isActive", type="smallint", nullable=true)
+     */
+    private $isactive;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="companyid", type="integer", nullable=true)
+     */
+    private $companyid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

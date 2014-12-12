@@ -1,0 +1,46 @@
+<?php
+
+namespace furies\orbitBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Supportedrouters
+ *
+ * @ORM\Table(name="supportedrouters")
+ * @ORM\Entity
+ */
+class Supportedrouters
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="routername", type="string", length=45, nullable=false)
+     */
+    private $routername;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="routerdesc", type="string", length=45, nullable=true)
+     */
+    private $routerdesc;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="companyid", type="integer", nullable=true)
+     */
+    private $companyid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="routerid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $routerid;
+
+
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+{# ... #}
+     {% block stylesheets %}
+                <link href="{{ asset('bundles/furiesorbit/css/base.css') }}" type="text/css" rel="stylesheet" />
+                <link href="{{ asset('bundles/furiesorbit/css/skel.css') }}" type="text/css" rel="stylesheet" />
+                <link href="{{ asset('bundles/furiesorbit/css/style.css') }}" type="text/css" rel="stylesheet" />
+                <link href="{{ asset('bundles/furiesorbit/css/style-wide.css') }}" type="text/css" rel="stylesheet" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+            {% endblock %}
+
+{% javascripts '@furiesorbitBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+	<body>
+
+		<!-- Header -->
+			<div id="header" class="skel-layers-fixed">
+
+				<div class="top">
+
+					<!-- Logo -->
+						<div id="logo">
+							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+							<h1 id="title">Furies Orbit Server</h1>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<!--
+							
+								Prologue's nav expects links in one of two formats:
+								
+								1. Hash link (scrolls to a different section within the page)
+								
+								   <li><a href="#foobar" id="foobar-link" class="icon fa-whatever-icon-you-want skel-layers-ignoreHref"><span class="label">Foobar</span></a></li>
+
+								2. Standard link (sends the user to another page/site)
+
+								   <li><a href="http://foobar.tld" id="foobar-link" class="icon fa-whatever-icon-you-want"><span class="label">Foobar</span></a></li>
+							
+							-->
+							<ul>
+								<li><a href="#top" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-home">Home</span></a></li>
+								<li><a href="#portfolio" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Portfolio</span></a></li>
+								<li><a href="#about" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-user">About Me</span></a></li>
+								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Contact</span></a></li>
+							</ul>
+						</nav>
+						
+				</div>
+				
+				<div class="bottom">
+
+					<!-- Social Icons -->
+						<ul class="icons">
+							
+						</ul>
+				
+				</div>
+			
+			</div>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Intro -->
+					
+						<div class="container">
+                                                      <div class="4u">
+</br>
+                                                     {% block body %}
+
+							 {% endblock %}
+						      </div>   
+						</div>
+
+				
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+
+							<header>
+								<h2>Contact</h2>
+							</header>
+
+							<p>Elementum sem parturient nulla quam placerat viverra 
+							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia 
+							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc 
+							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
+							
+							<form method="post" action="#">
+								<div class="row 50%">
+									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u"><input type="text" name="email" placeholder="Email" /></div>
+								</div>
+								<div class="row 50%">
+									<div class="12u">
+										<textarea name="message" placeholder="Message"></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="12u">
+										<input type="submit" value="Send Message" />
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</section>
+			
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+				
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				
+			</div>
+
+	</body>
+</html>
+</html>

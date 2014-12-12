@@ -1,0 +1,4 @@
+furiesorbit:
+    resource: "@furiesorbitBundle/Resources/config/routing.yml"
+    prefix:   /
+

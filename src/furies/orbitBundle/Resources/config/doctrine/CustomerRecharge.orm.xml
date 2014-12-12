@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="furies\orbitBundle\Entity\CustomerRecharge" table="customer_recharge">
+    <indexes>
+      <index name="fk_customer_recharge_1_idx" columns="customerid"/>
+      <index name="index1" columns="rechargeid,rechargedate,customerid,rechargeplanid"/>
+      <index name="fk_customer_recharge_2_idx" columns="rechargeplanid"/>
+    </indexes>
+    <id name="rechargeid" type="integer" column="rechargeid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="rechargedate" type="datetime" column="rechargedate" nullable="false"/>
+    <field name="rechargetype" type="string" column="rechargetype" length="45" nullable="false"/>
+    <field name="rechargePaymentMode" type="string" column="recharge_payment_mode" length="45" nullable="false"/>
+    <field name="rechargedby" type="string" column="rechargedby" length="45" nullable="true"/>
+    <many-to-one field="rechargeplanid" target-entity="PrepaidTariff">
+      <join-columns>
+        <join-column name="rechargeplanid" referenced-column-name="idprepaid_tariff"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customerid" target-entity="Customers">
+      <join-columns>
+        <join-column name="customerid" referenced-column-name="customers_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

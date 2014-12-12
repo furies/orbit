@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="furies\orbitBundle\Entity\Prepaidcircuits" table="prepaidcircuits">
+    <indexes>
+      <index name="fk_prepaidcircuits_1_idx" columns="customerid"/>
+      <index name="fk_prepaidcircuits_2_idx" columns="routerid"/>
+    </indexes>
+    <id name="circuitid" type="integer" column="circuitid">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="contactperson" type="string" column="contactperson" length="200" nullable="true"/>
+    <field name="contactmobile" type="string" column="contactmobile" length="45" nullable="true"/>
+    <field name="contactemail" type="string" column="contactemail" length="200" nullable="true"/>
+    <field name="startdate" type="datetime" column="startdate" nullable="true"/>
+    <field name="noofstaticips" type="string" column="noofstaticips" length="150" nullable="true"/>
+    <field name="staticipaddress" type="string" column="staticipaddress" length="150" nullable="true"/>
+    <field name="createdby" type="integer" column="createdby" nullable="true"/>
+    <field name="createddate" type="datetime" column="createddate" nullable="true"/>
+    <field name="modifiedby" type="integer" column="modifiedby" nullable="true"/>
+    <field name="modifieddatetime" type="datetime" column="modifieddatetime" nullable="true"/>
+    <field name="companyid" type="integer" column="companyid" nullable="true"/>
+    <many-to-one field="routerid" target-entity="Supportedrouters">
+      <join-columns>
+        <join-column name="routerid" referenced-column-name="routerid"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="customerid" target-entity="Customers">
+      <join-columns>
+        <join-column name="customerid" referenced-column-name="customers_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="furies\orbitBundle\Entity\Customers" table="customers">
+    <id name="customersId" type="integer" column="customers_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="crnNo" type="integer" column="crn_no" nullable="true"/>
+    <field name="title" type="string" column="title" length="10" nullable="false"/>
+    <field name="name" type="string" column="name" length="200" nullable="false"/>
+    <field name="doorno" type="string" column="doorno" length="10" nullable="true"/>
+    <field name="address" type="string" column="address" length="200" nullable="true"/>
+    <field name="address1" type="string" column="address1" length="200" nullable="true"/>
+    <field name="address2" type="string" column="address2" length="200" nullable="true"/>
+    <field name="city" type="string" column="city" length="200" nullable="true"/>
+    <field name="pin" type="integer" column="pin" nullable="true"/>
+    <field name="custType" type="string" column="cust_type" length="10" nullable="false"/>
+    <field name="mobile" type="string" column="mobile" length="15" nullable="true"/>
+    <field name="email" type="string" column="email" length="200" nullable="true"/>
+    <field name="custCategory" type="string" column="cust_category" length="10" nullable="false"/>
+    <field name="doe" type="date" column="doe" nullable="false"/>
+    <field name="live" type="smallint" column="live" nullable="false"/>
+    <field name="comment" type="string" column="comment" length="45" nullable="true"/>
+    <field name="createdby" type="integer" column="createdby" nullable="true"/>
+    <field name="modifiedby" type="integer" column="modifiedby" nullable="true"/>
+    <field name="insertdate" type="datetime" column="insertdate" nullable="true"/>
+    <field name="modifieddate" type="datetime" column="modifieddate" nullable="true"/>
+    <field name="companyid" type="integer" column="companyid" nullable="true"/>
+  </entity>
+</doctrine-mapping>

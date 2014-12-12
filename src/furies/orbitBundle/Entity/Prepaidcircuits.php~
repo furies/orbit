@@ -1,0 +1,122 @@
+<?php
+
+namespace furies\orbitBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Prepaidcircuits
+ *
+ * @ORM\Table(name="prepaidcircuits", indexes={@ORM\Index(name="fk_prepaidcircuits_1_idx", columns={"customerid"}), @ORM\Index(name="fk_prepaidcircuits_2_idx", columns={"routerid"})})
+ * @ORM\Entity
+ */
+class Prepaidcircuits
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contactperson", type="string", length=200, nullable=true)
+     */
+    private $contactperson;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contactmobile", type="string", length=45, nullable=true)
+     */
+    private $contactmobile;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contactemail", type="string", length=200, nullable=true)
+     */
+    private $contactemail;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startdate", type="datetime", nullable=true)
+     */
+    private $startdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="noofstaticips", type="string", length=150, nullable=true)
+     */
+    private $noofstaticips;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="staticipaddress", type="string", length=150, nullable=true)
+     */
+    private $staticipaddress;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="createdby", type="integer", nullable=true)
+     */
+    private $createdby;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="createddate", type="datetime", nullable=true)
+     */
+    private $createddate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="modifiedby", type="integer", nullable=true)
+     */
+    private $modifiedby;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="modifieddatetime", type="datetime", nullable=true)
+     */
+    private $modifieddatetime;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="companyid", type="integer", nullable=true)
+     */
+    private $companyid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="circuitid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $circuitid;
+
+    /**
+     * @var \furies\orbitBundle\Entity\Supportedrouters
+     *
+     * @ORM\ManyToOne(targetEntity="furies\orbitBundle\Entity\Supportedrouters")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="routerid", referencedColumnName="routerid")
+     * })
+     */
+    private $routerid;
+
+    /**
+     * @var \furies\orbitBundle\Entity\Customers
+     *
+     * @ORM\ManyToOne(targetEntity="furies\orbitBundle\Entity\Customers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customerid", referencedColumnName="customers_id")
+     * })
+     */
+    private $customerid;
+
+
+}

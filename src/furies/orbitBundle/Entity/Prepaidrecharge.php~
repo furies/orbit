@@ -1,0 +1,80 @@
+<?php
+
+namespace furies\orbitBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Prepaidrecharge
+ *
+ * @ORM\Table(name="prepaidrecharge", indexes={@ORM\Index(name="index1", columns={"rechargeid", "rechargedate", "rechargeplanid"}), @ORM\Index(name="fk_customer_recharge_2_idx", columns={"rechargeplanid"}), @ORM\Index(name="fk_prepaidrecharge_circuitid_idx", columns={"circuitid"})})
+ * @ORM\Entity
+ */
+class Prepaidrecharge
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="rechargedate", type="datetime", nullable=false)
+     */
+    private $rechargedate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rechargetype", type="string", length=45, nullable=false)
+     */
+    private $rechargetype;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recharge_payment_mode", type="string", length=45, nullable=false)
+     */
+    private $rechargePaymentMode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rechargedby", type="string", length=45, nullable=true)
+     */
+    private $rechargedby;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="companyid", type="integer", nullable=true)
+     */
+    private $companyid;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rechargeid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $rechargeid;
+
+    /**
+     * @var \furies\orbitBundle\Entity\Prepaidcircuits
+     *
+     * @ORM\ManyToOne(targetEntity="furies\orbitBundle\Entity\Prepaidcircuits")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="circuitid", referencedColumnName="circuitid")
+     * })
+     */
+    private $circuitid;
+
+    /**
+     * @var \furies\orbitBundle\Entity\PrepaidTariff
+     *
+     * @ORM\ManyToOne(targetEntity="furies\orbitBundle\Entity\PrepaidTariff")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="rechargeplanid", referencedColumnName="idprepaid_tariff")
+     * })
+     */
+    private $rechargeplanid;
+
+
+}

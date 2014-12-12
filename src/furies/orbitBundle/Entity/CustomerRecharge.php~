@@ -1,0 +1,73 @@
+<?php
+
+namespace furies\orbitBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CustomerRecharge
+ *
+ * @ORM\Table(name="customer_recharge", indexes={@ORM\Index(name="fk_customer_recharge_1_idx", columns={"customerid"}), @ORM\Index(name="index1", columns={"rechargeid", "rechargedate", "customerid", "rechargeplanid"}), @ORM\Index(name="fk_customer_recharge_2_idx", columns={"rechargeplanid"})})
+ * @ORM\Entity
+ */
+class CustomerRecharge
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="rechargedate", type="datetime", nullable=false)
+     */
+    private $rechargedate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rechargetype", type="string", length=45, nullable=false)
+     */
+    private $rechargetype;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="recharge_payment_mode", type="string", length=45, nullable=false)
+     */
+    private $rechargePaymentMode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rechargedby", type="string", length=45, nullable=true)
+     */
+    private $rechargedby;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rechargeid", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $rechargeid;
+
+    /**
+     * @var \furies\orbitBundle\Entity\PrepaidTariff
+     *
+     * @ORM\ManyToOne(targetEntity="furies\orbitBundle\Entity\PrepaidTariff")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="rechargeplanid", referencedColumnName="idprepaid_tariff")
+     * })
+     */
+    private $rechargeplanid;
+
+    /**
+     * @var \furies\orbitBundle\Entity\Customers
+     *
+     * @ORM\ManyToOne(targetEntity="furies\orbitBundle\Entity\Customers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="customerid", referencedColumnName="customers_id")
+     * })
+     */
+    private $customerid;
+
+
+}
